@@ -1,4 +1,10 @@
 FROM ollama/ollama
 
-# Start server & pull tinyllama
-CMD ["sh", "-c", "ollama serve & sleep 10 && ollama pull tinyllama && wait"]
+# সার্ভার চালাবে
+RUN ollama serve &
+
+# মডেল ডাউনসোড সরো
+RUN sleep 10 && ollama pull tinyllama
+
+EXPOSE 11434
+CMD ["ollama", "serve"]
