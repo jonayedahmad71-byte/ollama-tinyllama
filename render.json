@@ -1,0 +1,17 @@
+{
+  "services": [
+    {
+      "type": "web",
+      "name": "ollama-tinyllama",
+      "env": "docker",
+      "region": "oregon",
+      "plan": "free",
+      "envVars": [
+        {
+          "key": "OLLAMA_HOST",
+          "value": "0.0.0.0"
+        }
+      ]
+    }
+  ]
+}
