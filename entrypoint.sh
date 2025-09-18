@@ -1,11 +1,10 @@
-#!/bin/sh
+#!/bin/bash
+set -e
 
-echo "Starting Ollama server..."
+# Render এর PORT environment variable ব্যবহার করবো
+PORT=${PORT:-11434}
 
-# মডেল ডাউনলোড করুন (প্রথমে)
-echo "Pulling model: tinyllama"
-ollama pull tinyllama
+echo "🚀 Starting Ollama server on 0.0.0.0:$PORT ..."
 
-# তারপর সার্ভার চালু করুন
-echo "Starting Ollama server..."
-exec ollama serve
+# Ollama server চালু করো
+ollama serve --host 0.0.0.0 --port $PORT
